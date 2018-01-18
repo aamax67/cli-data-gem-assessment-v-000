@@ -9,22 +9,23 @@ How to Build a CLI Gem
 7. discover objects
 8. program
 
-- A command line interface for concerts coming up in your area
+- A command line interface for current top 100 podcasts
 
-User types area-concerts
+User types top-podcasts
 
-Show a list of upcoming concerts in the area (sorted by date)
+Show a list of the top 100 podcasts currently(sorted by rank)
 
-1. Date, Artist, Venue, Buy tickets
-2. Date, Artist, Venue, Buy tickets
+1. Rank, Producer, Link
+2. Rank, Producer, Link
 
-Which concert do you want to know more about?
+Which podcast do you want to know more about?
 
 1
 
-What is a concert?
+What is a podcast?
 
-A concert has an Artist
-A concert has a date
-A concert has a URL
-A concert has a Venue
+A podcast has an name
+A podcast has a producer
+A podcast has a URL
+
+This is a test
