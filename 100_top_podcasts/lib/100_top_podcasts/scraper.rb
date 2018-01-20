@@ -1,13 +1,13 @@
 class TopPodcasts::Scraper
 
   def get_page
-    doc = Nokogiri::HTML(open("https://www.stitcher.com/stitcher-list/all-podcasts-top-shows"))
+    doc = Nokogiri::HTML(open("http://toppodcast.com/top-200-podcast/"))
 
     binding.pry
   end
 
   def scrape_podcasts_index
-    self.get_page.css("div#sl-container li")
+    self.get_page.css("div#podcastRow")
   end
 
   def make_podcasts
