@@ -1,4 +1,4 @@
-class 100TopPodcasts::Podcast
+class TopPodcasts::Podcast
 
   attr_accessor :name, :position, :summary, :producer, :url
 
@@ -38,9 +38,10 @@ class 100TopPodcasts::Podcast
 
   def summary
     @summary ||= podcast_summary_doc.search("p.")
+  end
 
   def doc
     @doc ||= Nokogiri::HTML(open(self.url))
   end
-    
+
 end

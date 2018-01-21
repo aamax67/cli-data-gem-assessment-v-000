@@ -1,10 +1,10 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "100_top_podcasts/version"
+require "top_podcasts/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = " 100_top_podcasts"
+  spec.name          = "top_podcasts"
   spec.version       = TopPodcasts::VERSION
   spec.authors       = ["'Aaron Lieberman'"]
   spec.email         = ["'aaronmaxmusic@gmail.com'"]

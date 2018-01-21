@@ -1,4 +1,4 @@
-module 100TopPodcasts
+module TopPodcasts
 end
 
 

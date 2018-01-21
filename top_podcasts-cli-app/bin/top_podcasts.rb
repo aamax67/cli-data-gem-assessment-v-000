@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "100_top_podcasts"
+require_relative "../lib/top_podcasts"
 
 TopPodcasts::CLI.new.call
