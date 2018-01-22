@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Aaron Lieberman'"]
   spec.email         = ["'aaronmaxmusic@gmail.com'"]
 
-  spec.summary       = %q{"This a list of the top 100 podcasts"}
+  spec.summary       = %q{"This a list of the top 200 podcasts"}
   spec.description   = %q{"Choose to learn about your favorite podcasts."}
   spec.homepage      = "https://github.com/learn-co-students/cli-data-gem-assessment-v-000"
 
