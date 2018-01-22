@@ -39,7 +39,7 @@ class TopPodcasts::CLI
     puts "----------- #{podcast.name} - #{podcast.position} -----------"
     puts ""
     puts "Producer:             #{podcast.producer}"
-    puts "website               #{podcast.website_url}"
+    puts "website               #{podcast.url}"
     puts ""
     puts "------------------Summary-------------------"
     puts ""
