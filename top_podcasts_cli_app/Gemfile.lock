@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     top_podcasts (0.1.0)
-      nokogiri
 
 GEM
   remote: https://rubygems.org/
@@ -36,6 +35,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
+  nokogiri
   pry
   rake (~> 10.0)
   rspec

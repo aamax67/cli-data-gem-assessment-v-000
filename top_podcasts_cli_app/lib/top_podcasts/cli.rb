@@ -6,16 +6,26 @@ class TopPodcasts::CLI
     start
   end
 
+  def list
+    puts ""
+    puts "----------------- Top 200 Podcasts ----------------"
+    puts ""
+    TopPodcasts::Podcast.all.each.with_index(1) do |podcast, i|
+      puts "#{i}. #{podcast.name}"
+    end
+    puts ""
+  end
+
   def start
     puts ""
     puts "What number podcasts would you like to see?  1-25, 26-50, 51-75, 76-100, 101- 125, 126-150, 151-175, 176-200?"
     input = gets.strip.to_i
 
-    print_podcast(input)
+    print_podcasts(input)
 
     puts ""
     puts "What podcast would you like more information on?"
-    input = gets.strip.to_i
+    input = gets.strip
 
     podcast = TopPodcasts::Podcast.find(input.to_i)
 
@@ -24,7 +34,7 @@ class TopPodcasts::CLI
     puts ""
     puts "Would you like to see another podcast?  Enter Y or N"
 
-    input = gets.strip.to_i
+    input = gets.strip.downcase
     if input == "Y"
       start
     else
@@ -36,12 +46,9 @@ class TopPodcasts::CLI
 
   def print_podcast(podcast)
     puts ""
-    puts "----------- #{podcast.name} - #{podcast.position} -----------"
+    puts "----------- #{podcast.position} - #{podcast.title} -----------"
     puts ""
-    puts "Producer:             #{podcast.producer}"
-    puts "website               #{podcast.url}"
-    puts ""
-    puts "------------------Summary-------------------"
+    puts "----------------------------Summary---------------------------"
     puts ""
     puts "#{podcast.summary}"
     puts ""
@@ -52,7 +59,7 @@ class TopPodcasts::CLI
     puts "------------- Podcasts #{from_number} - #{from_number+24} ---------"
     puts ""
     TopPodcasts::Podcast.all[from_number-1, 25].each.with_index(from_number) do |podcast, index|
-      puts "#{index}. #{podcast.name} - #{podcast.producer}"
+      puts "#{index}. #{podcast.title}"
     end
   end
 end

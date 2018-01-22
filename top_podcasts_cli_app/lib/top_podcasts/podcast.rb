@@ -1,22 +1,19 @@
 class TopPodcasts::Podcast
 
-  attr_accessor :name, :position, :summary, :producer, :url
+  attr_accessor :title, :position, :summary
 
   @@all = []
 
   def self.new_from_index_page(p)
     self.new(
-    p.css("h3").text,
-    "http://toppodcast.com/top-200-podcast/#{p.css("a").attribute("href").text}",
-    p.css(".numberImage").text
+    p.css(".podcastRow").first.css("h3").text.strip,
+    p.css(".podcastRow").first.css(".numberImage").text.strip,
     )
   end
 
 
-  def initialize(name=nil, url=nil, producer=nil, position=nil)
-      @name = name
-      @url = url
-      @producer = producer
+  def initialize(title=nil, position=nil)
+      @title = title
       @position = position
       @@all << self
   end
@@ -25,12 +22,8 @@ class TopPodcasts::Podcast
     @@all
   end
 
-  def self.find(id)
-    self.all[id-1]
-  end
-
   def summary
-    @summary ||= doc.css(".podcastBlock podcastBlock3").first.css("p").text
+    @summary ||= doc.css(".podcastRow").first.css("p").text.strip
   end
 
   def doc
