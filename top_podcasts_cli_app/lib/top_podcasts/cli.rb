@@ -1,18 +1,38 @@
 class TopPodcasts::CLI
 
   def call
+    TopPodcasts::Scraper.new.make_podcasts
+    puts "Welcome to the Top 200 Podcasts"
     start
   end
 
-  def list
+  def start
+  puts ""
+  puts "What number podcasts would you like to see? 1-50, 51-100, 101-150, 151-200?"
+  input = gets.strip.to_i
+
+  print_restaurants(input)
+
+  puts ""
+  puts "What podcast would you like more information on?"
+  input = gets.strip
+
+  podcast = TopPodcasts::Podcast.find(input.to_i)
+
+  print_podcast(podcast)
+
+  puts ""
+  puts "Would you like to see another podcast? Enter Y or N"
+
+  input = gets.strip.downcase
+  if input == "y"
+    start
+  else
     puts ""
-    puts "----------------- Top 200 Podcasts ----------------"
-    puts ""
-    TopPodcasts::Podcast.all.each.with_index(1) do |podcast, i|
-      puts "#{i}. #{podcast.title}"
-    end
-    puts ""
+    puts "Thankyou! Have a great day!"
+    exit
   end
+end
 
   def print_podcast(podcast)
     puts ""
@@ -24,29 +44,11 @@ class TopPodcasts::CLI
     puts ""
   end
 
-  def start
-    list
-    input = nil
-      while input != "exit"
-      puts ""
-      puts "What podcast would you like more information on, by name or number?"
-      puts ""
-      puts "Enter list to see the podcasts again."
-      puts "Enter exit to end the program"
-      puts ""
-      input = gets.strip
-      if input == "list"
-        list
-      elsif input.to_i == 0
-        if podcast = TopPodcasts::Podcast.find_by_title(input)
-          print_podcast(podcast)
-        end
-      elsif input.to_i > 0
-        if podcast = TopPodcasts::Podcast.find(input.to_i)
-          print_podcast(podcast)
-        end
-      end
+  def print_podcasts(from_number)
+    puts ""
+    puts "---------- Podcasts #{from_number} - #{from_number+49} ----------"
+    puts ""
+    WorldsBestRestaurants::Restaurant.all[from_number-1, 50].each.with_index(from_number) do |restaurant, index|
+      puts "#{index}. #{podcast.title}"
     end
-    puts "Goodbye"
   end
-end
