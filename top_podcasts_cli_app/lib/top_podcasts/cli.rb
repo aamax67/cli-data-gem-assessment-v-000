@@ -25,6 +25,7 @@ class TopPodcasts::CLI
   puts "Would you like to see another podcast? Enter Y or N"
 
   input = gets.strip.downcase
+<<<<<<< HEAD
     if input == "y"
       start
     else
@@ -32,7 +33,16 @@ class TopPodcasts::CLI
       puts "Thankyou! Have a great day!"
       exit
     end
+=======
+  if input == "y"
+    start
+  else
+    puts ""
+    puts "Thankyou! Have a great day!"
+    exit
+>>>>>>> dd5cdca784e6ea45720332eb8ac649b9e704fa9b
   end
+end
 
   def print_podcast(podcast)
     puts ""
@@ -52,4 +62,3 @@ class TopPodcasts::CLI
       puts "#{index}. #{podcast.title}"
     end
   end
-end
